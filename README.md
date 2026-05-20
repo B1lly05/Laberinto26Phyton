@@ -1,59 +1,127 @@
-# 🏛️ Laberinto26 Python
+# 🎮 Laberinto26: Reingeniería y Patrones de Diseño (Pharo a Python)
 
-¡Bienvenido al repositorio de **Laberinto26**! 
+¡Bienvenido a **Laberinto26**! Este proyecto representa una migración, refactorización y reingeniería completa de un sistema de laberinto interactivo originalmente diseñado en **Pharo (Smalltalk)** hacia **Python 3**. 
 
-Este proyecto es un juego de exploración de laberintos desarrollado en Python. El jugador asume el papel de un protagonista que debe navegar por distintas habitaciones, interactuar con objetos (armarios, puertas, cofres), enfrentarse a enemigos ("Bichos", "Guardianes") y sobrevivir utilizando ítems como pociones y armaduras, todo en su camino para encontrar tesoros legendarios como la *Espada del Olimpo*.
-
-Más allá de ser un juego, este proyecto destaca por ser una **excelente implementación de Arquitectura de Software**, aplicando múltiples patrones de diseño clásicos (GoF) para mantener un código limpio, escalable y modular.
+El objetivo principal es aplicar los principios de diseño de software **SOLID** y los patrones de diseño clásicos (**GoF**) para construir una arquitectura altamente modular, extensible y mantenible, acompañada de una **interfaz gráfica premium interactiva** inspirada en la estética oscura de *Hollow Knight* y las mecánicas de *The Binding of Isaac*.
 
 ---
 
-## 🚀 Características Principales
+## 📸 Características Destacadas
 
-* **Exploración de Mazmorras:** Navega a través de habitaciones conectadas por puertas y túneles en múltiples direcciones (Norte, Sur, Este, Oeste y diagonales).
-* **Sistema de Combate e Interacción:** Ataca enemigos, abre puertas (si tienes la llave adecuada) y saquea contenedores.
-* **Sistema de Estados:** Las puertas pueden estar abiertas o cerradas; las entidades pueden estar vivas o muertas.
-* **Inteligencia Artificial de Enemigos:** Los monstruos tienen modos de comportamiento (Agresivo, Perezoso) que dictan cómo actúan frente al jugador.
-* **Trampas y Entornos Dinámicos:** Paredes bomba, armarios con veneno y elementos destructibles.
-* **Interfaz:** Soporte para ejecución e interfaz gráfica (usando los recursos de la carpeta `assets`).
-* **Carga de Mapas:** Generación de laberintos predefinidos a través de archivos `.json` (ej. *Laberinto Del Olimpo.json*).
-
----
-
-## 🧩 Patrones de Diseño Implementados
-
-El código base está fuertemente orientado a objetos y utiliza los siguientes patrones de diseño:
-
-### 1. Patrones Creacionales
-* **Builder (`Laberinto26_builder/`)**: Se utiliza para separar la construcción del laberinto (habitaciones, paredes, puertas) de su representación. Facilita la creación de diferentes tipos de laberintos (ej. `LaberintoBuilderRombo`).
-
-### 2. Patrones Estructurales
-* **Composite (`ElementosFisicos/`)**: Permite tratar a los elementos individuales (Pared, Puerta, Cuadrado, Rombo) y a las composiciones de elementos (Habitacion, Laberinto, Contenedor) de manera uniforme a través de la clase base `ElementoMapa`.
-* **Decorator (`ElementosFisicos/Decorator.py`)**: Añade responsabilidades o características adicionales a los elementos físicos dinámicamente (por ejemplo, para bombas o estados alterados).
-
-### 3. Patrones de Comportamiento
-* **Command (`Comandos/`)**: Encapsula todas las acciones del jugador (`Abrir`, `Atacar`, `Interactuar`, `UsarPocion`) como objetos, permitiendo un fácil manejo, encolamiento o deshacer acciones.
-* **State (`Estados/`)**: Controla el comportamiento de los objetos dependiendo de su estado interno. Usado en entidades (`Vivo`, `Muerto`) y elementos del entorno (`Abierta`, `Cerrada` para las puertas).
-* **Strategy (`Entidades/Modo.py`, `Agresivo.py`, `Perezoso.py`)**: Define el comportamiento intercambiable de los enemigos en el laberinto.
-* **Visitor (`Visitor/`)**: Permite separar los algoritmos de la estructura de objetos sobre la que operan. Útil para aplicar efectos globales sobre el laberinto sin modificar las clases de los elementos (ej. `VisitorAbrirPuertas`, `VisitorActivarBombas`).
+*   **Interfaz Gráfica Avanzada (Tkinter + PIL)**:
+    *   **Estética Hollow Knight**: HUD elegante y minimalista con barras de vida estilizadas, menú lateral de inventario y renderizado con sombras realistas.
+    *   **Animación de Transición de Salas**: Desplazamientos fluidos tipo *slide* (estilo *The Legend of Zelda* / *Isaac*) al cruzar puertas.
+    *   **Efectos Visuales Activos**: Sistema de partículas dinámicas por colisiones, rastros de ataques de espada, textos flotantes de daño/curación y cráteres quemados para las bombas detonadas.
+*   **Mecánicas de Juego Completas**:
+    *   Movimiento libre del personaje con controles `WASD`.
+    *   Sistema de combate en tiempo real con la **Espada del Olimpo** (`ESPACIO`).
+    *   Inventario dinámico (`I`) y recolección de equipamiento (Pociones de salud, Llaves, Espadas y Armaduras de misterio con aumento de vida máxima).
+    *   Enemigos inteligentes con diferentes comportamientos: **Agresivo** (persigue activamente), **Perezoso** (se desplaza aleatoriamente y duerme) y el **Boss Guardián** del Laberinto.
+    *   Elementos destructivos y de almacenamiento: **Armarios con trampa de bomba de veneno**, **Paredes con bombas**, y pasadizos.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🛠️ Patrones de Diseño Implementados
+
+La arquitectura del proyecto está construida de forma estricta sobre patrones de diseño de software para garantizar la modularidad y el bajo acoplamiento:
+
+1.  **Composite (Estructural)**:
+    *   Define una jerarquía uniforme de elementos físicos. La clase abstracta `ElementoMapa_Clase` es heredada por hojas (`Pared`, `Puerta`, `Bomba`) y contenedores (`Laberinto_Clase`, `Habitacion_Clase`), permitiendo tratarlos de forma homogénea.
+2.  **Visitor (Comportamiento)**:
+    *   Permite ejecutar operaciones globales (abrir/cerrar todas las puertas, activar/desactivar todas las trampas de bombas) recorriendo la estructura de árbol del laberinto sin violar la encapsulación. Utiliza la técnica de **Doble Despacho (Double Dispatch)** a través del método `aceptar(visitor)`.
+3.  **Builder (Creacional)**:
+    *   Ubicado en `Laberinto26_builder/`, este patrón desacopla el proceso de construcción compleja de un laberinto paso a paso (añadir habitaciones, colocar puertas orientadas, posicionar bombas) de su representación final.
+4.  **Factory Method (Creacional)**:
+    *   `Juego_Clase` actúa como el creador que define los métodos de fabricación de piezas (`fabricar_habitacion`, `fabricar_pared`, `fabricar_puerta`). Las subclases pueden alterar los componentes físicos creados sin modificar la lógica principal de ensamblado del juego.
+5.  **Decorator (Estructural)**:
+    *   Utilizado para añadir comportamiento dinámico a los elementos del mapa, como decorar paredes normales en `ParedBomba` o armarios estándar en `ArmarioBombaVeneno`.
+6.  **State (Comportamiento)**:
+    *   Gobierna el comportamiento dinámico de los enemigos (`Bicho`) según su modo actual de IA (`Agresivo`, `Perezoso`).
+
+---
+
+## 📁 Estructura del Directorio
 
 ```text
-📦 Laberinto26Phyton
- ┣ 📂 Laberinto26/
- ┃ ┣ 📂 Comandos/         # Lógica de acciones del jugador (Atacar, Abrir, etc.)
- ┃ ┣ 📂 ElementosFisicos/ # Componentes del mapa (Pared, Puerta, Habitacion, etc.)
- ┃ ┣ 📂 Entidades/        # Clases de personajes (Prota, Bicho, Guardian) y comportamientos
- ┃ ┣ 📂 Estados/          # Lógica de estados para entidades y puertas
- ┃ ┣ 📂 Orientaciones/    # Vectores y direcciones de movimiento
- ┃ ┣ 📂 Visitor/          # Operaciones masivas sobre el laberinto
- ┃ ┣ 📂 assets/           # Sprites e imágenes para la interfaz gráfica
- ┃ ┣ 📜 Juego.py          # Lógica central (Game Engine)
- ┃ ┣ 📜 Main.py           # Punto de entrada por consola
- ┃ ┗ 📜 MainInterfaz.py   # Punto de entrada con Interfaz Gráfica
- ┣ 📂 Laberinto26_builder/# Constructores de mapas y Director
- ┣ 📂 Mapa/               # Mapas en formato JSON
- ┗ 📂 tests/              # Pruebas unitarias para garantizar el funcionamiento
+├── Laberinto.mdj              # Archivo de modelado de software en StarUML
+├── diagramas_diseno.md        # Diagrama de Clases y Secuencia detallado (Mermaid)
+├── README.md                  # El archivo que estás leyendo ahora
+│
+├── Laberinto26/               # Módulo Principal del Juego
+│   ├── ElementosFisicos/      # Clases de la jerarquía Composite (Habitacion, Bomba, etc.)
+│   ├── Entidades/             # Personaje, Boss, Bichos e Inteligencias Artificiales
+│   ├── Visitor/               # Clases y derivaciones del Patrón Visitor
+│   ├── Orientaciones/         # Clases de dirección cardinal (Norte, Sur, Este, Oeste)
+│   ├── Estados/               # Estados y modos de comportamiento
+│   ├── Comandos/              # Implementación de acciones del juego
+│   ├── assets/                # Texturas, sprites de personajes y recursos visuales (.png)
+│   ├── Juego.py               # Lógica del bucle y controladores centrales
+│   ├── MainInterfaz.py        # Ventana del juego, renderizadores y controladores de teclado
+│   └── Main.py                # Inicialización tradicional en consola
+│
+├── Laberinto26_builder/       # Implementación del Patrón Builder
+│   ├── LaberintoBuilder.py
+│   ├── Director.py
+│   └── VistaLaberinto.py
+│
+└── tests/                     # Batería de pruebas unitarias y de integración del sistema
+```
+
+---
+
+## 🚀 Instalación y Ejecución
+
+### 1. Requisitos Previos
+Asegúrate de tener instalado **Python 3.10 o superior** y el gestor de paquetes `pip`.
+
+### 2. Clonar / Descargar el Repositorio
+Si aún no lo has hecho, descarga las carpetas del proyecto en tu máquina local.
+
+### 3. Instalar Dependencias
+Este juego utiliza la biblioteca **Pillow** para procesar los sprites gráficos con canal alfa (transparencia real). Instálala ejecutando:
+
+```bash
+pip install Pillow
+```
+
+### 4. Lanzar el Juego
+Para iniciar la experiencia gráfica interactiva, simplemente ejecuta el archivo de interfaz principal desde tu terminal en la carpeta raíz del proyecto:
+
+```bash
+python Laberinto26/MainInterfaz.py
+```
+
+---
+
+## 🎮 Controles del Juego
+
+*   **`W` / `A` / `S` / `D`**: Mover al protagonista por la habitación.
+*   **`ESPACIO`**: Blandir la espada (atacar en la dirección a la que miras).
+*   **`E`**: Interactuar con los armarios oscuros para abrirlos y conseguir botín (¡cuidado con las trampas!).
+*   **`I`**: Abrir/Cerrar el panel de Inventario detallado.
+*   **`H` / `U`**: Consumir una poción curativa del inventario para recuperar vida instantáneamente.
+*   **`Escape`**: Salir del juego.
+
+---
+
+## 🧪 Ejecución de Pruebas Unitarias
+
+Para garantizar la robustez del código y que todos los patrones funcionan sin errores de integración, se ha provisto una suite de pruebas con `pytest`. 
+
+Para ejecutar los tests automatizados:
+
+1. Instala pytest:
+   ```bash
+   pip install pytest
+   ```
+2. Ejecuta los tests en la raíz del proyecto:
+   ```bash
+   pytest
+   ```
+
+---
+
+## 👥 Autores y Licencia
+Desarrollado como entrega académica oficial para la asignatura de **Diseño de Software (ESIIAB)**.
+*   **Autor**: B1lly05 (GitHub)
+*   **Licencia**: Libre uso con fines formativos y de investigación.
