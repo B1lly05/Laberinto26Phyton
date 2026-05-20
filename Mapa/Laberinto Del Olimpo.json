@@ -1,0 +1,406 @@
+{
+    "forma": "poligono4",
+    "laberinto": [
+        {
+            "tipo": "habitacion",
+            "num": 1,
+            "hijos": [
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 2,
+            "hijos": [
+                {
+                    "tipo": "armario_bomba_veneno",
+                    "num": 2
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 3,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 3
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 4,
+            "hijos": [
+                {
+                    "tipo": "armario_bomba_veneno",
+                    "num": 4
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 5,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 5
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 6,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 6
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 7,
+            "hijos": [
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 8,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 8
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 9,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 9
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 10,
+            "hijos": [
+                {
+                    "tipo": "armario_bomba_veneno",
+                    "num": 10
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 11,
+            "hijos": [
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 12,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 12
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 13,
+            "hijos": [
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 14,
+            "hijos": [
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 15,
+            "hijos": [
+                {
+                    "tipo": "armario_bomba_veneno",
+                    "num": 15
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 16,
+            "hijos": [
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        },
+        {
+            "tipo": "habitacion",
+            "num": 18,
+            "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 18
+                },
+                {
+                    "tipo": "bomba_veneno"
+                },
+                {
+                    "tipo": "bomba"
+                },
+                {
+                    "tipo": "bomba_veneno"
+                }
+            ]
+        }
+    ],
+    "puertas": [
+        [
+            1,
+            "Norte",
+            3,
+            "Sur",
+            "abierta"
+        ],
+        [
+            2,
+            "Este",
+            3,
+            "Oeste",
+            "cerrada"
+        ],
+        [
+            3,
+            "Este",
+            4,
+            "Oeste",
+            "cerrada"
+        ],
+        [
+            4,
+            "Este",
+            5,
+            "Oeste",
+            "abierta"
+        ],
+        [
+            5,
+            "Norte",
+            6,
+            "Sur",
+            "abierta"
+        ],
+        [
+            15,
+            "Norte",
+            5,
+            "Sur",
+            "abierta"
+        ],
+        [
+            15,
+            "Este",
+            16,
+            "Oeste",
+            "cerrada"
+        ],
+        [
+            16,
+            "Este",
+            18,
+            "Oeste",
+            "abierta"
+        ],
+        [
+            6,
+            "Este",
+            7,
+            "Oeste",
+            "cerrada"
+        ],
+        [
+            7,
+            "Este",
+            8,
+            "Oeste",
+            "cerrada"
+        ],
+        [
+            7,
+            "Norte",
+            12,
+            "Sur",
+            "abierta"
+        ],
+        [
+            12,
+            "Norte",
+            13,
+            "Sur",
+            "abierta"
+        ],
+        [
+            13,
+            "Norte",
+            14,
+            "Sur",
+            "cerrada"
+        ],
+        [
+            3,
+            "Norte",
+            9,
+            "Sur",
+            "abierta"
+        ],
+        [
+            9,
+            "Norte",
+            11,
+            "Sur",
+            "abierta"
+        ],
+        [
+            10,
+            "Este",
+            11,
+            "Oeste",
+            "cerrada"
+        ]
+    ],
+    "bichos": [
+        [
+            "Agresivo",
+            3
+        ],
+        [
+            "Agresivo",
+            7
+        ],
+        [
+            "Agresivo",
+            9
+        ],
+        [
+            "Agresivo",
+            10
+        ],
+        [
+            "Agresivo",
+            18
+        ],
+        [
+            "Perezoso",
+            5
+        ],
+        [
+            "Perezoso",
+            8
+        ],
+        [
+            "Perezoso",
+            11
+        ],
+        [
+            "Perezoso",
+            12
+        ],
+        [
+            "Guardian",
+            13
+        ]
+    ]
+}
