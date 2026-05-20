@@ -57,3 +57,9 @@ El código base está fuertemente orientado a objetos y utiliza los siguientes p
  ┣ 📂 Laberinto26_builder/# Constructores de mapas y Director
  ┣ 📂 Mapa/               # Mapas en formato JSON
  ┗ 📂 tests/              # Pruebas unitarias para garantizar el funcionamiento
+
+
+
+# Diagrama de secuencia
+<img width="8192" height="5676" alt="Visitor Composite Flow-2026-05-20-173614" src="https://github.com/user-attachments/assets/95fe1b75-eec4-4bc2-be07-209af08ad8a4" />
+
