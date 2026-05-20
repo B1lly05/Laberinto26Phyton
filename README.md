@@ -37,6 +37,12 @@ El código base está fuertemente orientado a objetos y utiliza los siguientes p
 * **Strategy (`Entidades/Modo.py`, `Agresivo.py`, `Perezoso.py`)**: Define el comportamiento intercambiable de los enemigos en el laberinto.
 * **Visitor (`Visitor/`)**: Permite separar los algoritmos de la estructura de objetos sobre la que operan. Útil para aplicar efectos globales sobre el laberinto sin modificar las clases de los elementos (ej. `VisitorAbrirPuertas`, `VisitorActivarBombas`).
 
+
+# Diagrama de secuencia
+
+<img width="8192" height="5676" alt="Visitor Composite Flow-2026-05-20-173614" src="https://github.com/user-attachments/assets/ae77a932-77e7-47bd-8968-90dfcdfd7840" />
+
+
 ---
 
 ## 📁 Estructura del Proyecto
@@ -60,6 +66,5 @@ El código base está fuertemente orientado a objetos y utiliza los siguientes p
 
 
 
-# Diagrama de secuencia
-<img width="8192" height="5676" alt="Visitor Composite Flow-2026-05-20-173614" src="https://github.com/user-attachments/assets/95fe1b75-eec4-4bc2-be07-209af08ad8a4" />
+
 
