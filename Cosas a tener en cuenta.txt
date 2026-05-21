@@ -1,0 +1,8 @@
+para jugar hay que ejecutar Main para la terminal
+y MainInterfaz para la interfaz
+
+Sobre la interfaz, un amigo a probado desde su pc y salen las siluetas de los personajes tal y como deberían
+pero he intentado yo ejecutarlo desde otra IDE y salen círculos de colores en vez de los png.
+No se a que se deberá pero según he investigado es por una librería llamada Pillow
+
+Un saludo muchas gracias
