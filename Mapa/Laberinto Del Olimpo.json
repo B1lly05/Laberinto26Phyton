@@ -6,6 +6,10 @@
             "num": 1,
             "hijos": [
                 {
+                    "tipo": "armario",
+                    "num": 101
+                },
+                {
                     "tipo": "bomba"
                 },
                 {
@@ -98,6 +102,10 @@
             "num": 7,
             "hijos": [
                 {
+                    "tipo": "armario",
+                    "num": 107
+                },
+                {
                     "tipo": "bomba"
                 }
             ]
@@ -183,6 +191,10 @@
             "num": 13,
             "hijos": [
                 {
+                    "tipo": "armario",
+                    "num": 113
+                },
+                {
                     "tipo": "bomba"
                 }
             ]
@@ -191,6 +203,10 @@
             "tipo": "habitacion",
             "num": 14,
             "hijos": [
+                {
+                    "tipo": "armario",
+                    "num": 114
+                },
                 {
                     "tipo": "bomba"
                 },
