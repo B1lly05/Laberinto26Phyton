@@ -42,6 +42,9 @@ El código base está fuertemente orientado a objetos y utiliza los siguientes p
 
 <img width="8192" height="5676" alt="Visitor Composite Flow-2026-05-20-173614" src="https://github.com/user-attachments/assets/ae77a932-77e7-47bd-8968-90dfcdfd7840" />
 
+<img width="8192" height="7263" alt="Visitor Composite Flow-2026-05-21-102408" src="https://github.com/user-attachments/assets/dc14682b-54a7-480f-b981-b4d53a1cd815" />
+
+
 
 ---
 
