@@ -52,13 +52,13 @@ class InteractuarComando(Comando_Clase):
                     ))
                 else:
                     cercano.abierto = True
-                    # 🎁 Siempre garantizamos una llave en armarios normales para poder abrir puertas, más otros botines aleatorios
+                    # 🎁 Mejoramos drásticamente el botín (Loot Buff): garantizamos llave + altas probabilidades de objetos de alta calidad
                     dropped = ["llave"]
-                    if random.random() < 0.50:
+                    if random.random() < 0.75:
                         dropped.append("espada")
-                    if random.random() < 0.50:
+                    if random.random() < 0.80:
                         dropped.append("pocion")
-                    if random.random() < 0.50:
+                    if random.random() < 0.70:
                         dropped.append("armadura")
                         
                     if dropped:
